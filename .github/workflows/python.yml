@@ -1,0 +1,19 @@
+name: Python
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Python
+        run: sudo apt-get install python3
+
+      - name: Run Python
+        run: python3 my_python_script.py
