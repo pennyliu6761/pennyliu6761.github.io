@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
+    <title>使用 plotly 在 HTML5 環境下製作圖表</title>
   </head>
   <body>
-    <h1>覺得厲害</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.7.0/plotly.min.js"></script>
+    <script>
+      import plotly.io as pio
+      # 繪製圖表
+      plt.plot([1, 2, 3], [4, 5, 6])
+      plt.xlabel('x 軸')
+      plt.ylabel('y 軸')
+      # 轉換圖表
+      pio.write_html(plt.gcf(), file_name='my_chart.html')
+    </script>
+    <iframe src="my_chart.html" width="500px" height="500px"></iframe>
   </body>
 </html>
