@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Line Chart</title>
+  <title>Line Chart</title>
 </head>
 <body>
-<script src="line_chart.py"></script>
+  <script>
+    // 執行 Python 程式碼
+    var python = require("python-shell");
+    var process = python.exec("python line_chart.py");
+    process.on("exit", function(code) {
+      if (code !== 0) {
+        // 程式碼失敗
+      } else {
+        // 程式碼成功
+        var img = document.getElementById("chart");
+        img.src = process.output;
+      }
+    });
+  </script>
+  <img id="chart" />
 </body>
 </html>
