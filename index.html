@@ -1,23 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Line Chart</title>
-</head>
-<body>
-  <script>
-    // 執行 Python 程式碼
-    var python = require("python-shell");
-    var process = python.exec("python line_chart.py");
-    process.on("exit", function(code) {
-      if (code !== 0) {
-        // 程式碼失敗
-      } else {
-        // 程式碼成功
-        var img = document.getElementById("chart");
-        img.src = process.output;
-      }
-    });
-  </script>
-  <img id="chart" />
-</body>
+<html>
+    <head>
+      <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <py-env>
+        – numpy
+        – matplotlib
+      </py-env>
+    </head>
+
+  <body>
+    <h1>Let's plot random numbers</h1>
+    <div id="plot"></div>
+    <py-script>
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.random.randn(1000)
+y = np.random.randn(1000)
+
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+fig
+    </py-script>
+  </body>
 </html>
